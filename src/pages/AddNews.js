@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 /* eslint-disable prettier/prettier */
 import { useState } from 'react';
@@ -20,8 +21,8 @@ export default function AddNews() {
   const handleSubmit = async () => {
     try {
       let formData = new FormData();
-      Object.values(data.pictures).forEach(file=>{
-        formData.append("pictures", file);
+      Object.values(data.pictures).forEach((file) => {
+        formData.append('pictures', file);
       });
       formData.append('name', data.name);
       formData.append('description', data.description);
@@ -40,7 +41,7 @@ export default function AddNews() {
   };
   return (
     <div className={classes.contract_form}>
-      <h1>Yangilik qo'shish</h1>
+      <h1>Diplom ishini yuborish</h1>
 
       <div>
         <Stack style={{ marginBottom: 30 }} className={classes.flexx}>
@@ -48,7 +49,7 @@ export default function AddNews() {
             <TextField
               autoComplete="username"
               type="text"
-              label="Yangilik sarlavhasi"
+              label="Diplom ishi mavzusi"
               className={classes.contract_input}
               name="name"
               value={data.name}
@@ -59,7 +60,7 @@ export default function AddNews() {
             <TextField
               autoComplete="username"
               type="text"
-              label="Yangilik matni"
+              label="Qisqacha matni"
               className={classes.contract_input}
               name="description"
               value={data.description}
@@ -94,7 +95,6 @@ export default function AddNews() {
           type="submit"
           variant="contained"
           style={{ marginLeft: '20px' }}
-          onClick={handleSubmit}
         >
           Yuborish
         </LoadingButton>
