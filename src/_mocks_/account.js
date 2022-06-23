@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------
-import img from '../img/cc.png';
+import img from '../img/bb.png';
 
 const account = {
   displayName: "San'atbek",

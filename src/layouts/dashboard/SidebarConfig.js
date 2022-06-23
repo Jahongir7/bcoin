@@ -6,9 +6,9 @@ import fileTextFill from '@iconify/icons-eva/file-text-fill';
 const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 export const directorSidebar = [
   {
-    title: 'Tashkilotlar',
+    title: 'Dashboard',
     path: '/director/companies',
-    icon: <Icon icon="emojione-v1:office-building" width={22} height={22} />
+    icon: <Icon icon="bx:user-pin" width={22} height={22} />
   },
   {
     title: 'Statistika',
@@ -20,17 +20,24 @@ const sidebarConfig = [
   {
     title: 'Yangiliklar',
     path: '/dashboard/companies',
-    icon: <Icon icon="emojione-v1:office-building" width={22} height={22} />
+
+    icon: <Icon icon="typcn:news" width={22} height={22} />
   },
   {
-    title: "Yangilik qo'shish",
+    title: 'Dashboard',
+    path: '/dashboard/account',
+
+    icon: <Icon icon="bx:user-pin" width={22} height={22} />
+  },
+  {
+    title: 'Reyting',
+    path: '/dashboard/reyting',
+    icon: <Icon icon="ic:twotone-star-rate" width={22} height={22} />
+  },
+  {
+    title: "Ma'lumot yuborish",
     path: '/dashboard/add-news',
-    icon: <Icon icon="akar-icons:circle-plus" width={22} height={22} />
-  },
-  {
-    title: 'Xizmat narxlari',
-    path: '/dashboard/add-services',
-    icon: getIcon(fileTextFill)
+    icon: <Icon icon="bi:send-x-fill" width={22} height={22} />
   }
 ];
 
