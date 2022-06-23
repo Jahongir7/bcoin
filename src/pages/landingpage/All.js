@@ -13,6 +13,7 @@ import News from './News';
 import Questions from './Questions';
 import GoogleMap from './GoogleMap';
 import Rahbariyat from './Rahbariyat';
+import RankingTable from '../ranking';
 
 const All = () => {
   const lang = useSelector((state) => state.langReducer.language);
@@ -52,9 +53,8 @@ const All = () => {
     <>
       <Navbar data={lanData.navbar} fontSize={shriftData} />
       <Carousel />
-      <Rahbariyat props={lanData.rahbariyat} fontSize={shriftData} />
+      <RankingTable />
       <News data={lanData.news} fontSize={shriftData} />
-      <Questions data1={lanData.questions} fontSize={shriftData} />
       <Footer data={lanData.footer} fontSize={shriftData} />
     </>
   );

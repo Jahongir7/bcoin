@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable object-shorthand */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/self-closing-comp */
@@ -71,7 +72,9 @@ const Navbar = ({ data, fontSize }) => {
           <Link to="aboutus" onClick={closeMobileMenu} duration={1000} smooth="true">
             <li style={{ fontSize: 16 + fontSize }}>{data.aboutUs}</li>
           </Link>
-
+          <Link to="news" onClick={closeMobileMenu} duration={1000} smooth="true">
+            <li style={{ fontSize: 16 + fontSize }}>Reyting</li>
+          </Link>
           <Link to="news" onClick={closeMobileMenu} duration={1000} smooth="true">
             <li style={{ fontSize: 16 + fontSize }}>{data.ustunligimiz}</li>
           </Link>
@@ -84,24 +87,6 @@ const Navbar = ({ data, fontSize }) => {
           <Link to="map" onClick={closeMobileMenu} duration={1000} smooth="true">
             <li style={{ fontSize: 16 + fontSize }}>{data.fikrlar}</li>
           </Link>
-          <li>
-            <div className={classes.lang_select} style={{ fontSize: 16 + fontSize }}>
-              <Select
-                options={options}
-                onChange={handleChange}
-                defaultValue={options.find((option) => option.value === lang)}
-              />
-            </div>
-          </li>
-          <li>
-            <div className={classes.lang_select} style={{ fontSize: 16 + fontSize }}>
-              <Select
-                options={shriftOptions}
-                onChange={handleChangeShrift}
-                defaultValue={shriftOptions.find((option) => option.value === shrift)}
-              />
-            </div>
-          </li>
         </ul>
       </div>
       <div className={click ? `${classes.navbar_right_mobile}` : `${classes.navbar_right}`}>

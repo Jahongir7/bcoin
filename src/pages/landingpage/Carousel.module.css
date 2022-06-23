@@ -1,4 +1,8 @@
 .bgImage {
+  background-image: url("https://img5.goodfon.com/wallpaper/nbig/3/60/bitcoin-btc-coin-blue-fon-sinii-molniia-bitkoin.jpg");
+  
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   display: flex;
   align-items: center;
