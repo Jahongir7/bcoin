@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
