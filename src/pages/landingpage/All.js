@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 import { useSelector } from 'react-redux';
 // import Categories from './Categories';

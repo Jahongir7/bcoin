@@ -3,7 +3,6 @@
 /* eslint-disable react/button-has-type */
 import { SocialButtons } from './FooterSocialButtons';
 import CalendarFooter from './Calendar';
-import img from '../../img/cc.png';
 import classes from './Footer.module.css';
 
 const Footer = ({ data, fontSize }) => {
