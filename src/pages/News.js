@@ -1,12 +1,9 @@
 /* eslint-disable arrow-body-style */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import swal from 'sweetalert';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Icon } from '@iconify/react';
-import { LoadingButton } from '@mui/lab';
-import { deleteNews, getNews } from '../redux/actions/adminActions';
+import { getNews } from '../redux/actions/adminActions';
 import 'aos/dist/aos.css';
 import classes from './landingpage/News.module.css';
 
@@ -18,16 +15,7 @@ const AdminNews = () => {
   if (news && news.length > 0) {
     cCompanies = [...news];
   }
-  function myFunction1(id) {
-    swal("Haqiqatdan ham ushbu postni o'chirasizmi?", {
-      buttons: ["Yo'q", 'Ha']
-    }).then((value) => {
-      if (value) {
-        dispatch(deleteNews(id));
-        dispatch(getNews());
-      }
-    });
-  }
+
   useEffect(() => {
     dispatch(getNews());
     // eslint-disable-next-line react-hooks/exhaustive-deps

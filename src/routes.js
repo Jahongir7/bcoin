@@ -10,6 +10,8 @@ import AdminNews from './pages/News';
 import AddNews from './pages/AddNews';
 import AdminServices from './pages/Services';
 import Post from './pages/landingpage/Post';
+import Prof from './pages/Account';
+import RankingTable from './pages/ranking';
 
 // ----------------------------------------------------------------------
 export const AdminRoutes = () => (
@@ -22,6 +24,8 @@ export const AdminRoutes = () => (
     <Route path="/company/:id" element={<CompanyIndex />} />
     <Route path="/admin-post/:id" element={<Post />} />
     <Route path="/update-story/:id" element={<UpdateStory />} />
+    <Route path="/account" element={<Prof />} />
+    <Route path="/reyting" element={<RankingTable />} />
   </Routes>
 );
 
