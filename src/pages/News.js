@@ -8,18 +8,15 @@ import 'aos/dist/aos.css';
 import classes from './landingpage/News.module.css';
 
 const AdminNews = () => {
-  const dispatch = useDispatch();
-  const news = useSelector((state) => state.adminReducer.news);
-  let cCompanies = [];
+  const cCompanies = [
+    {
+      _id: 1,
+      img: 'https://storage.kun.uz/source/6/webpJ-SHzIr0dagl1wRY6zEQFY4NFLYY.jpg',
+      name: "Ta'lim tizimi: 2021 yilda qanday yangiliklar kutilyapti?",
+      date: '22-04-2022'
+    }
+  ];
 
-  if (news && news.length > 0) {
-    cCompanies = [...news];
-  }
-
-  useEffect(() => {
-    dispatch(getNews());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div>
       <div className={classes.newsWrap}>
@@ -27,17 +24,10 @@ const AdminNews = () => {
           return (
             <div className={classes.eachNews} key={item._id}>
               <div className={classes.newsPic}>
-                <img
-                  src={item.avatar ? item.avatar : item.images[0] && item.images[0].secure_url}
-                  alt="News"
-                />
+                <img src={item.img} alt="News" />
               </div>
               <div className={classes.myPadding}>
-                <h4>
-                  <Link to={`/dashboard/admin-post/${item._id}`} className={classes.postLink}>
-                    {item.name}
-                  </Link>
-                </h4>
+                <h4>{item.name}</h4>
                 <Link to={`/dashboard/admin-post/${item._id}`} className={classes.postLink}>
                   <h3 className={classes.postLink}>
                     Batafsil <i className="fas fa-angle-double-right" />
