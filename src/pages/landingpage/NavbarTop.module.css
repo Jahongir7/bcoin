@@ -1,0 +1,9 @@
+.navtop {
+  height: 100px;
+  width: 100%;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

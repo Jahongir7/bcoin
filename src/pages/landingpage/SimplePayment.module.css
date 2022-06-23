@@ -1,0 +1,134 @@
+.container_payment {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.payment_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(175deg, rgb(88, 96, 206), rgb(16, 64, 107));
+  width: 50%;
+  height: 100vh;
+}
+.payment_left h1 {
+  color: white;
+}
+.payment_h1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0px 5px 17px rgba(16, 112, 177, 0.2);
+  background: white;
+  padding: 5px 40px;
+}
+.payment_right {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #f8f8f8;
+}
+.payment form {
+  width: 100%;
+  margin: 0 auto;
+}
+.errors {
+  color: red;
+}
+.payment h1 {
+  font-size: 24px;
+  margin-top: 35px;
+  margin-bottom: 0;
+}
+.payment form p {
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+#id_p {
+  font-size: 15px;
+}
+.payment form input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #98a0ac;
+  border-radius: 10px;
+}
+.payment form button {
+  background-color: #5a98d0;
+  width: 100%;
+  color: white;
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 40px;
+  outline: none;
+  border: 1px solid #5a98d0;
+  box-shadow: 0px 10px 17px rgba(90, 152, 208, 0.35);
+}
+.payment form button:hover {
+  box-shadow: 0px 19px 27px rgba(90, 152, 208, 0.35);
+}
+.selects {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #98a0ac;
+  border-radius: 10px;
+}
+@media (max-width: 880px) {
+  .payment_left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #f8f8f8;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+  }
+  .left_img {
+    width: 100%;
+    margin: 0;
+  }
+  .payment_right {
+    width: 100%;
+  }
+  .payment {
+    width: 90%;
+  }
+  .container_payment {
+    flex-direction: column;
+  }
+}
+.summa {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+}
+.summa p {
+  background-color: #5a98d0;
+  margin: 0 !important;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-left: 5px;
+}

@@ -1,0 +1,26 @@
+.css-10650aq {
+  width: 0;
+  height: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+.mainContainer {
+  width: 75%;
+  float: right;
+  margin-right: 3%;
+}
+.clr {
+  clear: both;
+}
+
+@media (max-width: 880px) {
+  .mainContainer {
+    width: 100%;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .orgWrap {
+    display: none;
+  }
+}
