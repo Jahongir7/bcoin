@@ -97,7 +97,7 @@ const Navbar = ({ data, fontSize }) => {
             className={width > 880 ? `${classes.button}` : ''}
             style={{ marginTop: `${width < 880 ? '30px' : '0'}` }}
           >
-            {data.admin}
+            Kirish
           </button>
         </MyUrl>
       </div>
