@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://onkolagiya.herokuapp.com/',
+  baseURL: 'https://bilim-coin.herokuapp.com/',
   headers: {
     'Content-Type': 'application/json'
   }
