@@ -70,22 +70,20 @@ const Navbar = ({ data, fontSize }) => {
       <div className={click ? `${classes.nav_center_mobile}` : `${classes.nav_center}`}>
         <ul className={classes.nav_ul_item} style={{ margin: '10px auto' }}>
           <Link to="aboutus" onClick={closeMobileMenu} duration={1000} smooth="true">
-            <li style={{ fontSize: 16 + fontSize }}>{data.aboutUs}</li>
+            <li style={{ fontSize: 16 + fontSize }}>Biz haqimizda</li>
           </Link>
           <Link to="news" onClick={closeMobileMenu} duration={1000} smooth="true">
             <li style={{ fontSize: 16 + fontSize }}>Reyting</li>
           </Link>
           <Link to="news" onClick={closeMobileMenu} duration={1000} smooth="true">
-            <li style={{ fontSize: 16 + fontSize }}>{data.ustunligimiz}</li>
+            <li style={{ fontSize: 16 + fontSize }}>Yangiliklar</li>
           </Link>
           <MyUrl to="/services" onClick={closeMobileMenu} style={{ textDecoration: 'none' }}>
-            <li style={{ fontSize: 16 + fontSize }}>{data.tariflar}</li>
+            <li style={{ fontSize: 16 + fontSize }}>Xizmatlar</li>
           </MyUrl>
-          <Link to="questions" onClick={closeMobileMenu} duration={1000} smooth="true">
-            <li style={{ fontSize: 16 + fontSize }}>{data.savollar}</li>
-          </Link>
+
           <Link to="map" onClick={closeMobileMenu} duration={1000} smooth="true">
-            <li style={{ fontSize: 16 + fontSize }}>{data.fikrlar}</li>
+            <li style={{ fontSize: 16 + fontSize }}>Biz bilan Bog'lanish</li>
           </Link>
         </ul>
       </div>
