@@ -17,16 +17,16 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: true,
         loading: false,
-        phone: payload.phone,
-        role: payload.isStudent
+        phone: payload.user.phone,
+        role: payload.user.isStudent
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         token: payload.token,
-        phone: payload.phone,
+        phone: payload.user.phone,
         isAuthenticated: true,
-        role: payload.isStudent,
+        role: payload.user.isStudent,
         loading: false
       };
     case LOGIN_FAIL:

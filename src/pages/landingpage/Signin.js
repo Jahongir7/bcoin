@@ -19,16 +19,7 @@ export default function Signin() {
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(checkToken(3600));
-      switch (role) {
-        case true:
-          navigate('/dashboard/companies', { replace: true });
-          break;
-        case false:
-          navigate('/director/companies', { replace: true });
-          break;
-        default:
-          break;
-      }
+      navigate('/dashboard/companies', { replace: true });
     }
     console.log(isAuthenticated);
     console.log(role);

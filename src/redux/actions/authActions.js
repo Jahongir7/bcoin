@@ -11,7 +11,7 @@ export const login = (body) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: res.data
     });
-    console.log(res);
+    console.log(res.data, 'studentmi ?');
   } catch (err) {
     setAlert("UserName yoki parol noto'g'ri!", 'error');
     console.log(err);

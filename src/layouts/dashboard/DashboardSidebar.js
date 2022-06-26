@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // material
 import { styled } from '@mui/material/styles';
 import { Box, Link, Drawer, Typography, Avatar } from '@mui/material';
@@ -40,6 +41,8 @@ DashboardSidebar.propTypes = {
 };
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+  const role = useSelector((state) => state.authReducer.role);
+  console.log(role);
   const { pathname } = useLocation();
   useEffect(() => {
     if (isOpenSidebar) {
@@ -63,14 +66,14 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
                 Botir Atajanov
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                Talaba
+                {role ? 'Talaba' : 'Dekan'}
               </Typography>
             </Box>
           </AccountStyle>
         </Link>
       </Box>
 
-      <NavSection navConfig={sidebarConfig} />
+      <NavSection navConfig={role ? sidebarConfig : directorSidebar} />
 
       <Box sx={{ flexGrow: 1 }} />
     </Scrollbar>

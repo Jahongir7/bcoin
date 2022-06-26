@@ -168,7 +168,7 @@ export const addPrices = (formData) => async (dispatch) => {
 
 export const addNews = (formData) => async (dispatch) => {
   try {
-    const res = await api.post(`/post`, formData);
+    const res = await api.post(`/upload-image`, formData);
     setAlert("Muvaffaqiyatli qo'shildi!", 'success');
 
     dispatch({
