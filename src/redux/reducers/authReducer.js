@@ -1,11 +1,11 @@
-import { USER_LOADED, LOGIN_SUCCESS, LOGOUT, LOGIN_FAIL } from "../types";
+import { USER_LOADED, LOGIN_SUCCESS, LOGOUT, LOGIN_FAIL } from '../types';
 
 const initialState = {
-  token: localStorage.getItem("token"),
-  userName: null,
+  token: localStorage.getItem('token'),
+  phone: null,
   isAuthenticated: null,
-  role: localStorage.getItem("role"),
-  loading: true,
+  role: localStorage.getItem('role'),
+  loading: true
 };
 
 const authReducer = (state = initialState, action) => {
@@ -17,17 +17,17 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: true,
         loading: false,
-        userName: payload.userName,
-        role: payload.isAdmin,
+        phone: payload.phone,
+        role: payload.isStudent
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         token: payload.token,
-        userName: payload.userName,
+        phone: payload.phone,
         isAuthenticated: true,
-        role: payload.isAdmin,
-        loading: false,
+        role: payload.isStudent,
+        loading: false
       };
     case LOGIN_FAIL:
     case LOGOUT:
@@ -37,7 +37,7 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         role: null,
         loading: false,
-        userName: null,
+        phone: null
       };
     default:
       return state;

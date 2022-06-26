@@ -3,7 +3,6 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unknown-property */
 import './prof.css';
-import img from '../img/ff.png';
 
 const Prof = () => {
   return (
@@ -11,7 +10,10 @@ const Prof = () => {
       <div class="wrapper">
         <div class="img-area">
           <div class="inner-area">
-            <img src={img} alt="twitter" />
+            <img
+              src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
+              alt="twitter"
+            />
           </div>
         </div>
         <div class="name">Atajanov Bobur</div>

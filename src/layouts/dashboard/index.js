@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 //
+import { useSelector } from 'react-redux';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
 
@@ -27,15 +28,15 @@ const MainStyle = styled('div')(({ theme }) => ({
     paddingRight: theme.spacing(2)
   }
 }));
-const log = localStorage.getItem('login');
 
 // ----------------------------------------------------------------------
 
 export default function DashboardLayout() {
+  const log = useSelector((state) => state.authReducer.token);
   const [open, setOpen] = useState(false);
   return (
     <>
-      {log === '1' ? (
+      {log ? (
         <RootStyle>
           <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
           <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />

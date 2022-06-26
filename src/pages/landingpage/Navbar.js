@@ -89,18 +89,6 @@ const Navbar = ({ data, fontSize }) => {
           </Link>
         </ul>
       </div>
-      <div className={click ? `${classes.navbar_right_mobile}` : `${classes.navbar_right}`}>
-        <MyUrl to="/login">
-          <button
-            onClick={closeMobileMenu}
-            type="button"
-            className={width > 880 ? `${classes.button}` : ''}
-            style={{ marginTop: `${width < 880 ? '30px' : '0'}` }}
-          >
-            Kirish
-          </button>
-        </MyUrl>
-      </div>
     </div>
   );
 };

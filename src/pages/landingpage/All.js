@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Footer from './Footer';
 // import LeadInfo from './LeadInfo';
 import Navbar from './Navbar';
+import TopBar from './TopBar';
 // import Question from './Question';
 import { dataUz, dataRu, dataEn } from './LanData';
 import './All.css';
@@ -52,6 +53,7 @@ const All = () => {
 
   return (
     <>
+      <TopBar />
       <Navbar data={lanData.navbar} fontSize={shriftData} />
       <Carousel />
       <RankingTable />

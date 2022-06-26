@@ -1,13 +1,39 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/self-closing-comp */
-import React from 'react';
+import { useEffect } from 'react';
+// import * as Yup from "yup";
+import { Formik, Form } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import { LoadingButton } from '@mui/lab';
+import { Stack, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { login, checkToken } from '../../redux/actions/authActions';
 import './SignIn.css';
 
 export default function Signin() {
-  function myF() {
-    localStorage.setItem('login', '1');
-  }
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.authReducer.isAuthenticated);
+  const role = useSelector((state) => state.authReducer.role);
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(checkToken(3600));
+      switch (role) {
+        case true:
+          navigate('/dashboard/companies', { replace: true });
+          break;
+        case false:
+          navigate('/director/companies', { replace: true });
+          break;
+        default:
+          break;
+      }
+    }
+    console.log(isAuthenticated);
+    console.log(role);
+  });
+
   return (
     <div className="sign-in-wrapper">
       <section>
@@ -22,43 +48,52 @@ export default function Signin() {
           <div className="container">
             <div className="form1">
               <h2>Kirish</h2>
-              <form action="">
-                <div className="inputBx">
-                  <input
-                    type="text"
-                    required="required"
-                    placeholder="Telefon raqam"
-                    value="+998943127774"
-                  />
-                </div>
-                <div className="inputBx password">
-                  <input
-                    id="password-input"
-                    type="password"
-                    name="password"
-                    required="required"
-                    placeholder="Parol"
-                    value="943127774"
-                  />
-                </div>
+              <Formik
+                initialValues={{ phone: '', password: '' }}
+                onSubmit={async (values) => {
+                  dispatch(login(values));
+                  console.log(values);
+                }}
+              >
+                {({ values, handleChange, handleBlur }) => (
+                  <Form>
+                    <Stack
+                      spacing={3}
+                      style={{ marginBottom: 30, color: 'red', borderColor: 'red' }}
+                    >
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        autoComplete="phone"
+                        name="phone"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Telefon"
+                        value={values.phone}
+                        color="warning"
+                      />
 
-                <div
-                  className="btn"
-                  style={{
-                    background: '#23a6d5',
-                    border: 'none',
-                    textAlign: 'center',
-                    fontSize: '18px',
-                    color: '#fff',
-                    borderRadius: '8px'
-                  }}
-                  onClick={myF()}
-                >
-                  <a style={{ textDecoration: 'none', color: 'white' }} href="/dashboard/companies">
-                    Kirish
-                  </a>
-                </div>
-              </form>
+                      <TextField
+                        fullWidth
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        autoComplete="current-password"
+                        type="password"
+                        label="Yashirin so&#8216;z"
+                        onChange={handleChange}
+                        name="password"
+                        onBlur={handleBlur}
+                        value={values.password}
+                        color="warning"
+                        // {...getFieldProps('password')}
+                      />
+                    </Stack>
+                    <LoadingButton fullWidth size="large" type="submit" variant="contained">
+                      Kirish
+                    </LoadingButton>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </div>

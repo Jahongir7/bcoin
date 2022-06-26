@@ -5,6 +5,24 @@
   margin: 0 auto;
   width: 85%;
 }
+.nt{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  height: 10vh;
+  background-color: rgb(64, 64, 143);
+  color: white;
+}
+.nt img{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.nt_text{
+  width: 600px;
+  text-align: center;
+}
 .navbar {
   display: flex;
   align-items: center !important;
@@ -29,11 +47,11 @@
   transition: all 0.5s;
 }
 .nav_ul_item li {
-  margin-right: 14px;
+  margin-right: 54px;
   list-style: none;
   color: #4f5665;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 900;
   transition: all 0.5s;
   margin-bottom: 0;
 }
@@ -45,6 +63,22 @@
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 0;
+}
+.nt button {
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: inherit;
+  cursor: pointer;
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.nt button:hover {
+  color: white;
+  background-color: #5a98d0;
 }
 .navbar button {
   width: 130px;
