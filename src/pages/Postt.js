@@ -21,7 +21,7 @@ export default function Postt() {
       formData.append('image', data.image);
       formData.append('description', data.description);
 
-      const res = await fetch('http://localhost:5000/post', {
+      const res = await fetch('https://bilim-coin.herokuapp.com/post', {
         method: 'POST',
         body: formData
       });
