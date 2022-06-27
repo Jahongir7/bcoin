@@ -52,11 +52,12 @@ export const getEachNews = (id) => async (dispatch) => {
 
 export const getPrices = () => async (dispatch) => {
   try {
-    const res = await api.get(`/price`);
+    const res = await api.get(`/admin/students`);
     dispatch({
       type: ADMIN_GET_PRICES,
       payload: res.data
     });
+    console.log(res);
   } catch (err) {
     dispatch({
       type: ADMIN_ERROR

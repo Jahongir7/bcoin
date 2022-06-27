@@ -2,9 +2,12 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unknown-property */
+import { useSelector } from 'react-redux';
 import './prof.css';
 
 const Prof = () => {
+  const { role, firstName, lastName } = useSelector((state) => state.authReducer);
+
   return (
     <div className="wr">
       <div class="wrapper">
@@ -16,12 +19,14 @@ const Prof = () => {
             />
           </div>
         </div>
-        <div class="name">Atajanov Bobur</div>
-        <div class="career">Talaba</div>
+        <div class="name">
+          {firstName} {lastName}
+        </div>
+        <div class="career">{role}</div>
         <hr class="horizon" />
         <button class="about">Men haqimda</button>
         <div class="info">
-          <p>Ism: Botir</p>
+          <p>Ism: {firstName}</p>
           <p>Yosh: 23</p>
           <p></p>
           <p></p>

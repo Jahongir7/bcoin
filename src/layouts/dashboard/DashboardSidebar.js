@@ -41,8 +41,9 @@ DashboardSidebar.propTypes = {
 };
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
-  const role = useSelector((state) => state.authReducer.role);
+  const { role, firstName, lastName } = useSelector((state) => state.authReducer);
   console.log(role);
+  console.log(lastName);
   const { pathname } = useLocation();
   useEffect(() => {
     if (isOpenSidebar) {
@@ -63,7 +64,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                Botir Atajanov
+                {firstName} {lastName}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {role ? 'Talaba' : 'Dekan'}

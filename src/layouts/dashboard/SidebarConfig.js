@@ -19,7 +19,6 @@ export const directorSidebar = [
   }
 ];
 const sidebarConfig = [
-
   {
     title: 'Yangiliklar',
     path: '/dashboard/companies',
@@ -38,8 +37,8 @@ const sidebarConfig = [
     icon: <Icon icon="ic:twotone-star-rate" width={22} height={22} />
   },
   {
-    title: "Ma'lumot yuborish",
-    path: '/dashboard/add-news',
+    title: "Ma'lumotni yuborish",
+    path: '/dashboard/postt',
     icon: <Icon icon="bi:send-x-fill" width={22} height={22} />
   }
 ];

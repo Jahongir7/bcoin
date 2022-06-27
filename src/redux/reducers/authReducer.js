@@ -5,7 +5,9 @@ const initialState = {
   phone: null,
   isAuthenticated: null,
   role: localStorage.getItem('role'),
-  loading: true
+  loading: true,
+  firstName: null,
+  lastName: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -27,7 +29,9 @@ const authReducer = (state = initialState, action) => {
         phone: payload.user.phone,
         isAuthenticated: true,
         role: payload.user.isStudent,
-        loading: false
+        loading: false,
+        firstName: payload.user.firstName,
+        lastName: payload.user.lastName
       };
     case LOGIN_FAIL:
     case LOGOUT:
