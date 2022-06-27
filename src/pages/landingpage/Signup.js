@@ -3,8 +3,14 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import './SignIn.css';
+import { LoadingButton } from '@mui/lab';
+import { Stack, TextField } from '@mui/material';
+import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+  const navigate = useNavigate();
+
   return (
     <div className="sign-in-wrapper">
       <section>
@@ -18,15 +24,129 @@ export default function Signup() {
 
           <div className="container">
             <div className="form1">
-              <h2>Ro'yhatdan o'tish</h2>
-              <form action="">
+              <h2>Ro'yxatdan o'tish</h2>
+              <Formik
+                initialValues={{
+                  phone: '',
+                  password: '',
+                  firstName: '',
+                  lastName: '',
+                  faculty: '',
+                  course: '',
+                  group: ''
+                }}
+                onSubmit={async (values) => {
+                  console.log(values);
+                  fetch('https://bilim-coin.herokuapp.com/register', {
+                    method: 'POST',
+                    body: JSON.stringify(values),
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                  }).then((data) => {
+                    console.log(data);
+                    if (data && data.status === 200) {
+                      navigate('/login', { replace: true });
+                    }
+                  });
+                }}
+              >
+                {({ values, handleChange, handleBlur }) => (
+                  <Form>
+                    <Stack
+                      spacing={3}
+                      style={{ marginBottom: 30, color: 'red', borderColor: 'red' }}
+                    >
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        name="firstName"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Ismingiz"
+                        value={values.firstName}
+                        color="warning"
+                      />
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        name="lastName"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Familiyangiz"
+                        value={values.lastName}
+                        color="warning"
+                      />
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        autoComplete="phone"
+                        name="phone"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Telefon"
+                        value={values.phone}
+                        color="warning"
+                      />
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        name="faculty"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Fakultet"
+                        value={values.faculty}
+                        color="warning"
+                      />
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        name="course"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Kursingiz"
+                        value={values.course}
+                        color="warning"
+                      />
+                      <TextField
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        fullWidth
+                        name="group"
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Guruhingiz"
+                        value={values.group}
+                        color="warning"
+                      />
+                      <TextField
+                        fullWidth
+                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        autoComplete="current-password"
+                        type="password"
+                        label="Parolingiz"
+                        onChange={handleChange}
+                        name="password"
+                        onBlur={handleBlur}
+                        value={values.password}
+                        color="warning"
+                        // {...getFieldProps('password')}
+                      />
+                    </Stack>
+                    <LoadingButton fullWidth size="large" type="submit" variant="contained">
+                      Ro'yxatdan o'tish
+                    </LoadingButton>
+                  </Form>
+                )}
+              </Formik>
+              {/* <form action="">
                 <div className="inputBx">
-                  <input
-                    type="text"
-                    required="required"
-                    placeholder="Telefon Raqam"
-                    value="+998943127774"
-                  />
+                  <input type="text" required="required" placeholder="Telefon Raqam" />
                 </div>
                 <div className="inputBx password">
                   <input
@@ -35,22 +155,16 @@ export default function Signup() {
                     name="password"
                     required="required"
                     placeholder="Parol"
-                    value="943127774"
                   />
                 </div>
                 <div className="inputBx">
-                  <input
-                    type="text"
-                    required="required"
-                    placeholder="Ismingiz"
-                    value="Botir Atajanov"
-                  />
+                  <input type="text" required="required" placeholder="Ismingiz" />
                 </div>
                 <div className="inputBx">
-                  <input type="text" required="required" placeholder="Fakultet" value="" />
+                  <input type="text" required="required" placeholder="Fakultet" />
                 </div>
                 <div className="inputBx">
-                  <input type="text" required="required" placeholder="Guruh" value="" />
+                  <input type="text" required="required" placeholder="Guruh" />
                 </div>
                 <div
                   className="btn"
@@ -65,7 +179,7 @@ export default function Signup() {
                 >
                   Ro'yhatdan o'tish
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>
