@@ -3,73 +3,107 @@
 import { useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { Stack, TextField } from '@mui/material';
+import { Formik, Form } from 'formik';
+import { useSelector } from 'react-redux';
 import classes from '../css/AddContract.module.css';
 // ----------------------------------------------------------------------
 
 export default function Postt() {
-  const [data, setData] = useState({
-    image: '',
-    description: ''
-  });
-  const handleChange = (name) => (e) => {
-    const value = name === 'image' ? e.target.files[0] : e.target.value;
-    setData({ ...data, [name]: value });
-  };
-  const handleSubmit = async () => {
-    try {
-      let formData = new FormData();
-      formData.append('image', data.image);
-      formData.append('description', data.description);
+  const [selectedImage, setSelectedImage] = useState(false);
+  const { token } = useSelector((state) => state.authReducer);
+  // const [data, setData] = useState({
+  //   image: '',
+  //   description: ''
+  // });
+  // const handleChange = (name) => (e) => {
+  //   const value = name === 'image' ? e.target.files[0] : e.target.value;
+  //   setData({ ...data, [name]: value });
+  // };
 
-      const res = await fetch('https://bilim-coin.herokuapp.com/post', {
-        method: 'POST',
-        body: formData
-      });
-      if (res.ok) {
-        setData({ image: '', description: '' });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
   return (
     <div className={classes.contract_form}>
       <h1>Diplom ishini yuborish</h1>
 
       <div>
-        <Stack style={{ marginBottom: 30 }} className={classes.flexx}>
-          <div>
-            <TextField
-              autoComplete="username"
-              type="text"
-              label="Izoh"
-              className={classes.contract_input}
-              name="description"
-              value={data.description}
-              onChange={handleChange('description')}
-              multiline
-            />
-          </div>
-
-          <div>
-            <TextField
-              type="file"
-              accept="image/*"
-              name="image"
-              onChange={handleChange('image')}
-              className={classes.contract_input}
-            />
-          </div>
-        </Stack>
-        <LoadingButton
-          size="large"
-          type="submit"
-          variant="contained"
-          style={{ marginLeft: '20px' }}
-          onClick={handleSubmit}
+        <Formik
+          initialValues={{
+            description: ''
+          }}
+          onSubmit={async (values) => {
+            let formData = new FormData();
+            formData.append('file', selectedImage);
+            formData.append('upload_preset', 'uhnveshd');
+            fetch('https://api.cloudinary.com/v1_1/dtyz1dnzd/upload', {
+              method: 'POST',
+              body: formData
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                fetch('https://bilim-coin.herokuapp.com/upload-image', {
+                  method: 'PUT',
+                  body: JSON.stringify({
+                    image: JSON.parse(data).url,
+                    description: values.description
+                  }),
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: token
+                  }
+                }).then((data) => {
+                  console.log(data);
+                });
+              });
+            // setTimeout(() => {
+            //   fetch('https://bilim-coin.herokuapp.com/upload-image', {
+            //     method: 'PUT',
+            //     body: JSON.stringify({
+            //       image: url,
+            //       description: values.description
+            //     }),
+            //     headers: {
+            //       'Content-Type': 'application/json',
+            //       Authorization: token
+            //     }
+            //   }).then((data) => {
+            //     console.log(data);
+            //   });
+            // }, 7000);
+          }}
         >
-          Yuborish
-        </LoadingButton>
+          {({ values, handleChange, handleBlur }) => (
+            <Form>
+              <Stack style={{ marginBottom: 30 }} className={classes.flexx}>
+                <TextField
+                  type="text"
+                  label="Izoh"
+                  className={classes.contract_input}
+                  name="description"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.description}
+                  multiline
+                />
+                <input
+                  type="file"
+                  className={classes.contract_input}
+                  name="myImage"
+                  accept="image/*"
+                  onChange={(event) => {
+                    setSelectedImage(event.target.files[0]);
+                  }}
+                />
+              </Stack>
+              <LoadingButton
+                size="large"
+                type="submit"
+                variant="contained"
+                style={{ marginLeft: '20px' }}
+              >
+                Yuborish
+              </LoadingButton>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );
