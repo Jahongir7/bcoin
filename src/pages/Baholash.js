@@ -21,7 +21,7 @@ const Baholash = () => {
 
   return (
     <div style={{ width: '90%', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Talabalar Reytingi</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Talabalar Ro'yhati</h2>
       <div className="container">
         <div className="wrapper">
           <table>
