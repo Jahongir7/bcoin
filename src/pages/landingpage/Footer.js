@@ -9,7 +9,7 @@ const Footer = ({ data, fontSize }) => {
   return (
     <div className={classes.footer} id="footer">
       <div className={classes.footer_left} style={{ fontSize: 16 + fontSize }}>
-        <p style={{ marginTop: '20px' }}>{data.social} </p>
+        <p style={{ marginTop: '20px' }}>Bizni ijtimoiy tarmoqlarda kuzatib boring</p>
         <div className={classes.social_icons}>
           {SocialButtons.map((item) => {
             return (
@@ -26,7 +26,7 @@ const Footer = ({ data, fontSize }) => {
             <i className="fas fa-map-marker-alt" style={{ color: 'red', marginRight: '10px' }} />
             {data.manzil}:
           </b>{' '}
-          176, Абулгази Баходирхан улица, Ургенч
+          Al-Xorazmiy ko'cha, 110-uy
         </p>
       </div>
       <div className={classes.footer_center}>
@@ -34,7 +34,7 @@ const Footer = ({ data, fontSize }) => {
       </div>
       <div className={classes.footer_right} style={{ fontSize: 16 + fontSize }}>
         <h3>
-          <i className="fas fa-headset" style={{ color: 'white' }} /> {data.contact}
+          <i className="fas fa-headset" style={{ color: 'white' }} /> Biz bilan bog'lanish
         </h3>
         <ul>
           <li>
@@ -53,9 +53,9 @@ const Footer = ({ data, fontSize }) => {
             </a>
           </li>
           <li>
-            <a href="https://t.me/onkologiya_urganch_bot">
+            <a href="https://t.me_ubtuit_official">
               <i className="fab fa-telegram-plane" />
-              onkologiya_urganch_bot
+              UBTUIT
             </a>
           </li>
         </ul>
