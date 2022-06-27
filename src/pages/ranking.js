@@ -1,5 +1,4 @@
 /* eslint-disable arrow-body-style */
-import ModalImage from 'react-modal-image';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPrices } from '../redux/actions/adminActions';
