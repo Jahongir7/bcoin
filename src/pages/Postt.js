@@ -11,18 +11,10 @@ import classes from '../css/AddContract.module.css';
 export default function Postt() {
   const [selectedImage, setSelectedImage] = useState(false);
   const { token } = useSelector((state) => state.authReducer);
-  // const [data, setData] = useState({
-  //   image: '',
-  //   description: ''
-  // });
-  // const handleChange = (name) => (e) => {
-  //   const value = name === 'image' ? e.target.files[0] : e.target.value;
-  //   setData({ ...data, [name]: value });
-  // };
 
   return (
     <div className={classes.contract_form}>
-      <h1>Diplom ishini yuborish</h1>
+      <h1>Fayl yuborish</h1>
 
       <div>
         <Formik
@@ -53,21 +45,6 @@ export default function Postt() {
                   console.log(data);
                 });
               });
-            // setTimeout(() => {
-            //   fetch('https://bilim-coin.herokuapp.com/upload-image', {
-            //     method: 'PUT',
-            //     body: JSON.stringify({
-            //       image: url,
-            //       description: values.description
-            //     }),
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //       Authorization: token
-            //     }
-            //   }).then((data) => {
-            //     console.log(data);
-            //   });
-            // }, 7000);
           }}
         >
           {({ values, handleChange, handleBlur }) => (
