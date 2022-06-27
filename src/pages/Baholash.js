@@ -65,6 +65,9 @@ const Baholash = () => {
                 : ''}
             </tbody>
           </table>
+          <button className="button" type="button">
+            Saqlash
+          </button>
         </div>
       </div>
     </div>
