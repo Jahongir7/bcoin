@@ -43,7 +43,7 @@ const Baholash = () => {
                         </td>
                         <td className="points">{item?.files[0]?.grade || 0}/100</td>
                         <td className="up-down">
-                          {item.files[0].image ? (
+                          {item.files[0] && item.files[0].image ? (
                             <a href={item.files[0].image || ''}>
                               <img
                                 width="30px"
