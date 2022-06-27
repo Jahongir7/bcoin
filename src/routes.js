@@ -7,18 +7,20 @@ import Statistics from './pages/Statistics';
 import UpdateStory from './pages/UpdateStory';
 import CompanyIndex from './pages/CompanyIndex';
 import AdminNews from './pages/News';
-import AddNews from './pages/AddNews';
 import AdminServices from './pages/Services';
 import Post from './pages/landingpage/Post';
 import Prof from './pages/Account';
 import RankingTable from './pages/ranking';
+import SendPost from './pages/SendPost';
+import Postt from './pages/Postt';
+import Baholash from './pages/Baholash';
 
 // ----------------------------------------------------------------------
 export const AdminRoutes = () => (
   <Routes>
     <Route path="/companies" element={<AdminNews />} />
     <Route path="/add-company" element={<AddCompany />} />
-    <Route path="/add-news" element={<AddNews />} />
+    <Route path="/post" element={<SendPost />} />
     <Route path="/add-services" element={<AdminServices />} />
     <Route path="/add-story" element={<AddStory />} />
     <Route path="/company/:id" element={<CompanyIndex />} />
@@ -26,6 +28,8 @@ export const AdminRoutes = () => (
     <Route path="/update-story/:id" element={<UpdateStory />} />
     <Route path="/account" element={<Prof />} />
     <Route path="/reyting" element={<RankingTable />} />
+    <Route path="/postt" element={<Postt />} />
+    <Route path="/ranking" element={<Baholash />} />
   </Routes>
 );
 
