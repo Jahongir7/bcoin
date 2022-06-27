@@ -7,7 +7,7 @@ import { Formik, Form } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadingButton } from '@mui/lab';
 import { Stack, TextField } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login, checkToken } from '../../redux/actions/authActions';
 import './SignIn.css';
 
@@ -88,6 +88,14 @@ export default function Signin() {
             </div>
           </div>
         </div>
+
+        <Link
+          to="/register"
+          className="new"
+          style={{ position: 'absolute', bottom: 0, left: 0, cursor: 'pointer', color: '#fff' }}
+        >
+          ? "Accountingiz yo'qmi? Ro'yhatdan o'tish"
+        </Link>
       </section>
     </div>
   );

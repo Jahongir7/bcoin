@@ -14,7 +14,8 @@ import All from './pages/landingpage/All';
 import Posts from './pages/landingpage/Posts';
 import Post from './pages/landingpage/Post';
 import Services from './pages/landingpage/Services';
-import Auth from './pages/landingpage/Auth';
+import Signin from './pages/landingpage/Signin';
+import Signup from './pages/landingpage/Signup';
 
 export default function App() {
   return (
@@ -28,7 +29,10 @@ export default function App() {
           <Route path="/" element={<All />} />
         </Routes>
         <Routes>
-          <Route path="/login" element={<Auth />} />
+          <Route path="/login" element={<Signin />} />
+        </Routes>
+        <Routes>
+          <Route path="/register" element={<Signup />} />
         </Routes>
         <Routes>
           <Route path="/posts" element={<Posts />} />
