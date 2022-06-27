@@ -3,6 +3,7 @@
 /* eslint-disable arrow-body-style */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ModalImage from 'react-modal-image';
 import { getPrices } from '../redux/actions/adminActions';
 import './ranking.css';
 
@@ -42,16 +43,15 @@ const Baholash = () => {
                           {item.firstName} {item.lastName}
                         </td>
                         <td className="points">{item?.files[0]?.grade || 0}/100</td>
-                        <td className="up-down">
+                        <td className="up-down" style={{ width: '20px', height: '20px' }}>
                           {item.files[0] && item.files[0].image ? (
-                            <a href={item.files[0].image || ''}>
-                              <img
-                                width="30px"
-                                height="30px"
-                                alt=""
-                                src={item.files[0].image || ''}
-                              />
-                            </a>
+                            <ModalImage
+                              width="30px"
+                              height="30px"
+                              alt=""
+                              small={item.files[0].image || ''}
+                              large={item.files[0].image || ''}
+                            />
                           ) : (
                             'Topshirilmagan'
                           )}
