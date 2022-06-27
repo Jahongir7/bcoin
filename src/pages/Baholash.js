@@ -1,13 +1,18 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Stack, TextField } from '@mui/material';
+import { Form, Formik } from 'formik';
+import { LoadingButton } from '@mui/lab';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
-import { getPrices } from '../redux/actions/adminActions';
+import { addPrices, getPrices } from '../redux/actions/adminActions';
 import './ranking.css';
 
 const Baholash = () => {
+  const [val, setVal] = useState(0);
   const dispatch = useDispatch();
   const students = useSelector((state) => state.adminReducer.prices);
   let arr = [];
@@ -18,8 +23,7 @@ const Baholash = () => {
   useEffect(() => {
     dispatch(getPrices());
   }, [dispatch]);
-  console.log(arr);
-
+  console.log(arr[0]);
   return (
     <div style={{ width: '90%', margin: '0 auto' }}>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Talabalar Ro'yhati</h2>
@@ -32,7 +36,6 @@ const Baholash = () => {
                 <th>Ball</th>
                 <th>Fayli</th>
                 <th>Baho</th>
-                <th>Saqlash</th>
               </tr>
             </thead>
             <tbody>
@@ -58,12 +61,41 @@ const Baholash = () => {
                           )}
                         </td>
                         <td>
-                          <input min="1" max="100" type="number" />
-                        </td>
-                        <td>
-                          <button className="button" type="button">
-                            Saqlash
-                          </button>
+                          <Formik
+                            initialValues={{
+                              grade: 0
+                            }}
+                            onSubmit={(values, { resetForm }) => {
+                              dispatch(addPrices(item._id, item.files[0]._id, values));
+                              resetForm({ values: '' });
+                              console.log(values);
+                            }}
+                          >
+                            {({ values, handleChange, handleBlur, touched, errors }) => (
+                              <Form style={{ display: 'flex' }}>
+                                <Stack>
+                                  <div>
+                                    <TextField
+                                      type="number"
+                                      value={values.grade}
+                                      onChange={handleChange}
+                                      onBlur={handleBlur}
+                                      name="grade"
+                                      disabled={item.files[0]?._id ? false : true}
+                                    />
+                                  </div>
+                                </Stack>
+                                <LoadingButton
+                                  size="large"
+                                  type="submit"
+                                  variant="contained"
+                                  style={{ marginLeft: '20px' }}
+                                >
+                                  Saqlash
+                                </LoadingButton>
+                              </Form>
+                            )}
+                          </Formik>
                         </td>
                       </tr>
                     );

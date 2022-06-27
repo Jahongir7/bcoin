@@ -150,9 +150,9 @@ export const addCompany = (formData) => async (dispatch) => {
   }
 };
 
-export const addPrices = (formData) => async (dispatch) => {
+export const addPrices = (id1, id2, formData) => async (dispatch) => {
   try {
-    const res = await api.post(`/price`, formData);
+    const res = await api.put(`/admin/students/${id1}/${id2}`, formData);
     setAlert("Muvaffaqiyatli qo'shildi!", 'success');
 
     dispatch({
