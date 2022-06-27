@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/button-has-type */
 import { SocialButtons } from './FooterSocialButtons';
+import img from '../../img/bb.png';
 import CalendarFooter from './Calendar';
 import classes from './Footer.module.css';
 
@@ -9,6 +10,7 @@ const Footer = ({ data, fontSize }) => {
   return (
     <div className={classes.footer} id="footer">
       <div className={classes.footer_left} style={{ fontSize: 16 + fontSize }}>
+        <img src={img} alt="" width="100" style={{ borderRadius: '50%' }} />
         <p style={{ marginTop: '20px' }}>Bizni ijtimoiy tarmoqlarda kuzatib boring</p>
         <div className={classes.social_icons}>
           {SocialButtons.map((item) => {
