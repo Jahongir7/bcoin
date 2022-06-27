@@ -28,35 +28,46 @@ const RankingTable = () => {
                 <th>O'rin</th>
                 <th>Ism-Familiya</th>
                 <th>Ball</th>
+                <th>+-</th>
               </tr>
             </thead>
             <tbody>
-              {arr.length > 0
-                ? arr.map((item) => {
-                    return (
-                      <tr key={item._id}>
-                        <td className="team">
-                          {item.firstName} {item.lastName}
-                        </td>
-                        <td className="points">{item.files[0].grade || 0}/100</td>
-                        <td className="up-down">
-                          {item.files[0].image ? (
-                            <a href={item.files[0].image || ''}>
-                              <img
-                                width="30px"
-                                height="30px"
-                                alt=""
-                                src={item.files[0].image || ''}
-                              />
-                            </a>
-                          ) : (
-                            'Topshirilmagan'
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })
-                : ''}
+              <tr>
+                <td className="rank">1</td>
+                <td className="team">Atajanov Botir</td>
+                <td className="points">98/100</td>
+                <td className="up-down">0</td>
+              </tr>
+              <tr>
+                <td className="rank">2</td>
+                <td className="team">Sobirov Anvar</td>
+                <td className="points">98/100</td>
+                <td className="up-down">0</td>
+              </tr>
+              <tr>
+                <td className="rank">3</td>
+                <td className="team">Alisherov Anvar</td>
+                <td className="points">91/100</td>
+                <td className="up-down">0</td>
+              </tr>
+              <tr>
+                <td className="rank">4</td>
+                <td className="team">Diyorov Anvar</td>
+                <td className="points">90/100</td>
+                <td className="up-down">0</td>
+              </tr>
+              <tr>
+                <td className="rank">5</td>
+                <td className="team">Rasulov Anvar</td>
+                <td className="points">82/100</td>
+                <td className="up-down">0</td>
+              </tr>
+              <tr>
+                <td className="rank">6</td>
+                <td className="team">Saidov Anvar</td>
+                <td className="points">70/100</td>
+                <td className="up-down">0</td>
+              </tr>
             </tbody>
           </table>
         </div>

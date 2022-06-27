@@ -21,7 +21,7 @@ const Baholash = () => {
 
   return (
     <div style={{ width: '90%', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Talabalar Reytingi</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Talabalar Ro'yhati</h2>
       <div className="container">
         <div className="wrapper">
           <table>
@@ -41,9 +41,9 @@ const Baholash = () => {
                         <td className="team">
                           {item.firstName} {item.lastName}
                         </td>
-                        <td className="points">{item.files[0].grade || 0}/100</td>
+                        <td className="points">{item?.files[0]?.grade || 0}/100</td>
                         <td className="up-down">
-                          {item.files[0].image ? (
+                          {item.files[0] && item.files[0].image ? (
                             <a href={item.files[0].image || ''}>
                               <img
                                 width="30px"
@@ -65,6 +65,9 @@ const Baholash = () => {
                 : ''}
             </tbody>
           </table>
+          <button className="button" type="button">
+            Saqlash
+          </button>
         </div>
       </div>
     </div>

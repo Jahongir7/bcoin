@@ -60,3 +60,19 @@ tbody tr:hover {
 td.rank {
 	text-transform: capitalize;
 }
+.button {
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #5a98d0;
+    background-color: inherit;
+    cursor: pointer;
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #5a98d0;
+  }
+  .button:hover {
+    color: white;
+    background-color: #5a98d0;
+  }

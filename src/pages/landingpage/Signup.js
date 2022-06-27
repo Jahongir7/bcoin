@@ -6,7 +6,7 @@ import './SignIn.css';
 import { LoadingButton } from '@mui/lab';
 import { Stack, TextField } from '@mui/material';
 import { Formik, Form } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -183,6 +183,13 @@ export default function Signup() {
             </div>
           </div>
         </div>
+        <Link
+          to="/login"
+          className="new"
+          style={{ position: 'absolute', bottom: 0, left: 0, cursor: 'pointer', color: '#fff' }}
+        >
+          "Accountingiz bormi? Kirish"
+        </Link>
       </section>
     </div>
   );
