@@ -58,7 +58,13 @@ export default function Signup() {
                       style={{ marginBottom: 30, color: 'red', borderColor: 'red' }}
                     >
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         name="firstName"
                         type="text"
@@ -69,7 +75,13 @@ export default function Signup() {
                         color="warning"
                       />
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         name="lastName"
                         type="text"
@@ -80,7 +92,13 @@ export default function Signup() {
                         color="warning"
                       />
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         autoComplete="phone"
                         name="phone"
@@ -92,7 +110,13 @@ export default function Signup() {
                         color="warning"
                       />
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         name="faculty"
                         type="text"
@@ -103,7 +127,13 @@ export default function Signup() {
                         color="warning"
                       />
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         name="course"
                         type="text"
@@ -114,7 +144,13 @@ export default function Signup() {
                         color="warning"
                       />
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         name="group"
                         type="text"
@@ -126,7 +162,13 @@ export default function Signup() {
                       />
                       <TextField
                         fullWidth
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            borderColor: 'white',
+                            backgroundColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         autoComplete="current-password"
                         type="password"
                         label="Parolingiz"
@@ -181,15 +223,19 @@ export default function Signup() {
                 </div>
               </form> */}
             </div>
+            <Link
+              to="/login"
+              style={{
+                color: 'white',
+                fontWeight: '900',
+                textDecoration: 'none',
+                marginTop: '30px'
+              }}
+            >
+              Kirish
+            </Link>
           </div>
         </div>
-        <Link
-          to="/login"
-          className="new"
-          style={{ position: 'absolute', bottom: 0, left: 0, cursor: 'pointer', color: '#fff' }}
-        >
-          "Accountingiz bormi? Kirish"
-        </Link>
       </section>
     </div>
   );

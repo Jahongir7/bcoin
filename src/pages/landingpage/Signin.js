@@ -53,7 +53,13 @@ export default function Signin() {
                       style={{ marginBottom: 30, color: 'red', borderColor: 'red' }}
                     >
                       <TextField
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         fullWidth
                         autoComplete="phone"
                         name="phone"
@@ -67,7 +73,13 @@ export default function Signin() {
 
                       <TextField
                         fullWidth
-                        sx={{ input: { color: 'white', borderColor: 'white' } }}
+                        sx={{
+                          input: {
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                            borderRadius: '10px'
+                          }
+                        }}
                         autoComplete="current-password"
                         type="password"
                         label="Yashirin so&#8216;z"
@@ -86,16 +98,19 @@ export default function Signin() {
                 )}
               </Formik>
             </div>
+            <Link
+              to="/register"
+              style={{
+                color: 'white',
+                fontWeight: '900',
+                textDecoration: 'none',
+                marginTop: '30px'
+              }}
+            >
+              Ro'yhatdan o'tish
+            </Link>
           </div>
         </div>
-
-        <Link
-          to="/register"
-          className="new"
-          style={{ position: 'absolute', bottom: 0, left: 0, cursor: 'pointer', color: '#fff' }}
-        >
-          ? "Accountingiz yo'qmi? Ro'yhatdan o'tish"
-        </Link>
       </section>
     </div>
   );
