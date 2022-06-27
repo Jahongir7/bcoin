@@ -32,6 +32,7 @@ const Baholash = () => {
                 <th>Ball</th>
                 <th>Fayli</th>
                 <th>Baho</th>
+                <th>Saqlash</th>
               </tr>
             </thead>
             <tbody>
@@ -59,15 +60,17 @@ const Baholash = () => {
                         <td>
                           <input min="1" max="100" type="number" />
                         </td>
+                        <td>
+                          <button className="button" type="button">
+                            Saqlash
+                          </button>
+                        </td>
                       </tr>
                     );
                   })
                 : ''}
             </tbody>
           </table>
-          <button className="button" type="button">
-            Saqlash
-          </button>
         </div>
       </div>
     </div>
