@@ -41,7 +41,7 @@ const Baholash = () => {
                         <td className="team">
                           {item.firstName} {item.lastName}
                         </td>
-                        <td className="points">{item.files[0].grade || 0}/100</td>
+                        <td className="points">{item?.files[0]?.grade || 0}/100</td>
                         <td className="up-down">
                           {item.files[0].image ? (
                             <a href={item.files[0].image || ''}>
